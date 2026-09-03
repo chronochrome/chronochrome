@@ -1,4 +1,4 @@
-import type { LightHueSnapshot } from "@igrs/circahue";
+import type { LightHueSnapshot } from "chronohue";
 
 /** Bootstrap 5 theme keys written by this adapter. */
 export const BOOTSTRAP_VAR_KEYS = [
@@ -32,7 +32,7 @@ export function hexToRgbCss(hex: string): string {
 }
 
 /**
- * Map a CircaHue snapshot onto Bootstrap 5 root theme vars.
+ * Map a ChronoHue snapshot onto Bootstrap 5 root theme vars.
  * Success / danger / warning stay untouched — brand accent ≠ status.
  */
 export function bootstrapVars(snap: LightHueSnapshot): Record<BootstrapCssVar, string> {

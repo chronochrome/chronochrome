@@ -1,26 +1,26 @@
-# @igrs/circahue-bootstrap
+# @chronohue/bootstrap
 
-CircaHue living accent as Bootstrap 5 primary. Two lines, then `.btn-primary` follows the sky.
+ChronoHue living accent as Bootstrap 5 primary. Two lines, then `.btn-primary` follows the sky.
 
-Core CircaHue is framework-free. This adapter is the fast path for Bootstrap 5.3+.
+Core ChronoHue is framework-free. This adapter is the fast path for Bootstrap 5.3+.
 
-[![npm](https://img.shields.io/npm/v/@igrs/circahue-bootstrap.svg)](https://www.npmjs.com/package/@igrs/circahue-bootstrap)
+[![npm](https://img.shields.io/npm/v/@chronohue/bootstrap.svg)](https://www.npmjs.com/package/@chronohue/bootstrap)
 
 ## Install
 
 ```bash
-npm install @igrs/circahue @igrs/circahue-bootstrap
+npm install chronohue @chronohue/bootstrap
 ```
 
 ## Quick start
 
 ```css
 @import "bootstrap/dist/css/bootstrap.min.css";
-@import "@igrs/circahue-bootstrap/theme.css";
+@import "@chronohue/bootstrap/theme.css";
 ```
 
 ```ts
-import { start } from "@igrs/circahue-bootstrap";
+import { start } from "@chronohue/bootstrap";
 
 start({
   latitude: 57.63,
@@ -34,7 +34,7 @@ start({
 <span class="badge text-bg-primary">now</span>
 ```
 
-`start()` writes CircaHue vars **and** `--bs-primary` / `--bs-primary-rgb` / link tokens. `theme.css` remaps `.btn-primary` and `.btn-outline-primary`, which Bootstrap compiles with Sass and would otherwise ignore runtime `--bs-primary`.
+`start()` writes ChronoHue vars **and** `--bs-primary` / `--bs-primary-rgb` / link tokens. `theme.css` remaps `.btn-primary` and `.btn-outline-primary`, which Bootstrap compiles with Sass and would otherwise ignore runtime `--bs-primary`.
 
 ## What moves
 
@@ -51,9 +51,9 @@ start({
 
 ## API
 
-### `start(opts?): CircaHueHandle`
+### `start(opts?): ChronoHueHandle`
 
-Same options as `createLightHueTicker` from `@igrs/circahue`, plus `el`.
+Same options as `createLightHueTicker` from `chronohue`, plus `el`.
 
 ```ts
 const hue = start({ latitude: 40.71, timeZone: "America/New_York" });
@@ -69,9 +69,9 @@ Pure map if you already have a snapshot and want to apply it yourself.
 
 | Host     | Package                                                                    |
 | -------- | -------------------------------------------------------------------------- |
-| Core     | [`@igrs/circahue`](https://github.com/isamarin/circahue)                   |
-| Tailwind | [`@igrs/circahue-tailwind`](https://github.com/isamarin/circahue-tailwind) |
-| Svelte 5 | [`@igrs/circahue-svelte`](https://github.com/isamarin/circahue-svelte)     |
+| Core     | [`chronohue`](https://github.com/isamarin/chronohue)                   |
+| Tailwind | [`@chronohue/tailwind`](https://github.com/isamarin/chronohue-tailwind) |
+| Svelte 5 | [`@chronohue/svelte`](https://github.com/isamarin/chronohue-svelte)     |
 
 ## License
 
