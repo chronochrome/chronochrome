@@ -1,8 +1,8 @@
 /**
- * CircaHue → Tailwind v4 theme tokens.
+ * ChronoHue → Tailwind v4 theme tokens.
  *
  * @import "tailwindcss";
- * @import "@igrs/circahue-tailwind/theme.css";
+ * @import "@chronohue/tailwind/theme.css";
  *
  * Then: bg-accent, text-accent, border-accent-hover, shadow-accent, …
  * Runtime values are written by start() onto :root.

@@ -5,14 +5,14 @@ import {
   type LightHueSnapshot,
   type LightHueTicker,
   type TickerOptions,
-} from "@igrs/circahue";
+} from "chronohue";
 
 export interface StartOptions extends TickerOptions {
   /** Element to write CSS vars onto. Default: `document.documentElement`. */
   el?: { style: { setProperty(name: string, value: string): void } } | null;
 }
 
-export interface CircaHueHandle extends LightHueTicker {
+export interface ChronoHueHandle extends LightHueTicker {
   readonly snapshot: LightHueSnapshot;
   subscribe: (fn: (snapshot: LightHueSnapshot) => void) => () => void;
 }
@@ -24,10 +24,10 @@ function resolveTarget(el: StartOptions["el"]): Parameters<typeof applyCssVars>[
 }
 
 /**
- * Sample once, apply CircaHue CSS vars, and keep them fresh.
+ * Sample once, apply ChronoHue CSS vars, and keep them fresh.
  * Tailwind utilities (`bg-accent`, …) follow the vars via theme.css / the plugin.
  */
-export function start(opts: StartOptions = {}): CircaHueHandle {
+export function start(opts: StartOptions = {}): ChronoHueHandle {
   const { el, ...tickerOpts } = opts;
   let snapshot = sampleLightHue(tickerOpts);
   const listeners = new Set<(s: LightHueSnapshot) => void>();
