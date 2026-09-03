@@ -1,12 +1,12 @@
 {
-  "name": "@igrs/circahue-svelte",
+  "name": "@chronohue/svelte",
   "version": "0.1.0",
-  "description": "CircaHue adapter for Svelte 5 — living accent as a store and <CircaHue>",
+  "description": "ChronoHue adapter for Svelte 5 — living accent as a store and <ChronoHue>",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "svelte": "./src/CircaHue.svelte",
+  "svelte": "./src/ChronoHue.svelte",
   "exports": {
     ".": {
       "import": {
@@ -18,16 +18,16 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./CircaHue.svelte": {
-      "types": "./src/CircaHue.svelte.d.ts",
-      "svelte": "./src/CircaHue.svelte",
-      "default": "./src/CircaHue.svelte"
+    "./ChronoHue.svelte": {
+      "types": "./src/ChronoHue.svelte.d.ts",
+      "svelte": "./src/ChronoHue.svelte",
+      "default": "./src/ChronoHue.svelte"
     }
   },
   "files": [
     "dist",
-    "src/CircaHue.svelte",
-    "src/CircaHue.svelte.d.ts",
+    "src/ChronoHue.svelte",
+    "src/ChronoHue.svelte.d.ts",
     "README.md",
     "LICENSE"
   ],
@@ -46,14 +46,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isamarin/circahue-svelte.git"
+    "url": "git+https://github.com/isamarin/chronohue-svelte.git"
   },
   "bugs": {
-    "url": "https://github.com/isamarin/circahue-svelte/issues"
+    "url": "https://github.com/isamarin/chronohue-svelte/issues"
   },
-  "homepage": "https://github.com/isamarin/circahue-svelte#readme",
+  "homepage": "https://github.com/isamarin/chronohue-svelte#readme",
   "keywords": [
-    "circahue",
+    "chronohue",
     "svelte",
     "svelte5",
     "circadian",
@@ -68,7 +68,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@igrs/circahue": "^0.1.1",
+    "chronohue": "^1.0.0",
     "svelte": "^5.0.0"
   },
   "peerDependenciesMeta": {
@@ -78,7 +78,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@igrs/circahue": "^0.1.1",
+    "chronohue": "^1.0.0",
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.9.0",

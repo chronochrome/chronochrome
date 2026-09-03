@@ -46,7 +46,7 @@ jobs:
         run: |
           npm pack --dry-run
           npm pack
-          tar -tzf igrs-circahue-svelte-*.tgz | head -40
+          tar -tzf igrs-chronohue-svelte-*.tgz | head -40
 
   test:
     name: Test (Node ${{ matrix.node }})
