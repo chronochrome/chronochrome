@@ -1,13 +1,13 @@
-# How to publish **@igrs/circahue-tailwind**
+# How to publish **@chronohue/tailwind**
 
 |                  |                                               |
 | ---------------- | --------------------------------------------- |
-| **npm package**  | `@igrs/circahue-tailwind`                     |
+| **npm package**  | `@chronohue/tailwind`                     |
 | **Organization** | [igrs](https://www.npmjs.com/org/igrs)        |
-| **GitHub**       | https://github.com/isamarin/circahue-tailwind |
-| **peer**         | `@igrs/circahue`                              |
+| **GitHub**       | https://github.com/isamarin/chronohue-tailwind |
+| **peer**         | `chronohue`                              |
 
-Same flow as CircaHue: `NPM_TOKEN` on the repo, tag `vX.Y.Z` matching `package.json`.
+Same flow as ChronoHue: `NPM_TOKEN` on the repo, tag `vX.Y.Z` matching `package.json`.
 
 ```bash
 npm version patch

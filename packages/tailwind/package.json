@@ -1,7 +1,7 @@
 {
-  "name": "@igrs/circahue-tailwind",
+  "name": "@chronohue/tailwind",
   "version": "0.1.0",
-  "description": "CircaHue adapter for Tailwind CSS — living accent as bg-accent / text-accent",
+  "description": "ChronoHue adapter for Tailwind CSS — living accent as bg-accent / text-accent",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -50,14 +50,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isamarin/circahue-tailwind.git"
+    "url": "git+https://github.com/isamarin/chronohue-tailwind.git"
   },
   "bugs": {
-    "url": "https://github.com/isamarin/circahue-tailwind/issues"
+    "url": "https://github.com/isamarin/chronohue-tailwind/issues"
   },
-  "homepage": "https://github.com/isamarin/circahue-tailwind#readme",
+  "homepage": "https://github.com/isamarin/chronohue-tailwind#readme",
   "keywords": [
-    "circahue",
+    "chronohue",
     "tailwind",
     "tailwindcss",
     "circadian",
@@ -72,7 +72,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@igrs/circahue": "^0.1.1",
+    "chronohue": "^1.0.0",
     "tailwindcss": ">=3.4.0"
   },
   "peerDependenciesMeta": {
@@ -82,7 +82,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@igrs/circahue": "^0.1.1",
+    "chronohue": "^1.0.0",
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.9.0",
