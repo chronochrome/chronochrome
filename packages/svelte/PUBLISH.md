@@ -1,13 +1,13 @@
-# How to publish **@igrs/circahue-svelte**
+# How to publish **@chronohue/svelte**
 
 |                  |                                             |
 | ---------------- | ------------------------------------------- |
-| **npm package**  | `@igrs/circahue-svelte`                     |
+| **npm package**  | `@chronohue/svelte`                     |
 | **Organization** | [igrs](https://www.npmjs.com/org/igrs)      |
-| **GitHub**       | https://github.com/isamarin/circahue-svelte |
-| **peer**         | `@igrs/circahue`, `svelte` ^5               |
+| **GitHub**       | https://github.com/isamarin/chronohue-svelte |
+| **peer**         | `chronohue`, `svelte` ^5               |
 
-Same flow as CircaHue: `NPM_TOKEN` on the repo, tag `vX.Y.Z` matching `package.json`.
+Same flow as ChronoHue: `NPM_TOKEN` on the repo, tag `vX.Y.Z` matching `package.json`.
 
 ```bash
 npm version patch

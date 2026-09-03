@@ -1,15 +1,15 @@
-# @igrs/circahue-svelte
+# @chronohue/svelte
 
-CircaHue living accent for Svelte 5. One `start()` in the layout — or `$hue` when you need the snapshot.
+ChronoHue living accent for Svelte 5. One `start()` in the layout — or `$hue` when you need the snapshot.
 
-Core CircaHue is framework-free. This adapter is the fast path: a readable store plus an optional `<CircaHue>` component.
+Core ChronoHue is framework-free. This adapter is the fast path: a readable store plus an optional `<ChronoHue>` component.
 
-[![npm](https://img.shields.io/npm/v/@igrs/circahue-svelte.svg)](https://www.npmjs.com/package/@igrs/circahue-svelte)
+[![npm](https://img.shields.io/npm/v/@chronohue/svelte.svg)](https://www.npmjs.com/package/@chronohue/svelte)
 
 ## Install
 
 ```bash
-npm install @igrs/circahue @igrs/circahue-svelte
+npm install chronohue @chronohue/svelte
 ```
 
 ## Quick start
@@ -18,7 +18,7 @@ npm install @igrs/circahue @igrs/circahue-svelte
 
 ```svelte
 <script>
-  import { start } from "@igrs/circahue-svelte";
+  import { start } from "@chronohue/svelte";
 
   start({
     latitude: 57.63,
@@ -40,13 +40,13 @@ button.brand:hover {
 
 ## Reactive snapshot
 
-`start` / `createCircaHue` is a Svelte readable store, so `$hue` just works:
+`start` / `createChronoHue` is a Svelte readable store, so `$hue` just works:
 
 ```svelte
 <script>
-  import { createCircaHue } from "@igrs/circahue-svelte";
+  import { createChronoHue } from "@chronohue/svelte";
 
-  const hue = createCircaHue({
+  const hue = createChronoHue({
     latitude: 57.63,
     timeZone: "Europe/Moscow",
   });
@@ -57,27 +57,27 @@ button.brand:hover {
 
 Call `hue.stop()` in an `$effect` cleanup if the store is created inside a component that can unmount.
 
-## `<CircaHue>`
+## `<ChronoHue>`
 
 Snippet-style wrapper that owns the ticker lifetime:
 
 ```svelte
 <script>
-  import CircaHue from "@igrs/circahue-svelte/CircaHue.svelte";
+  import ChronoHue from "@chronohue/svelte/ChronoHue.svelte";
 </script>
 
-<CircaHue latitude={57.63} timeZone="Europe/Moscow">
+<ChronoHue latitude={57.63} timeZone="Europe/Moscow">
   {#snippet children({ snapshot })}
     <mark style="background: {snapshot.accent.hex}">{snapshot.phaseLabel}</mark>
   {/snippet}
-</CircaHue>
+</ChronoHue>
 ```
 
 ## API
 
-### `createCircaHue(opts?)` / `start(opts?)`
+### `createChronoHue(opts?)` / `start(opts?)`
 
-Same options as `createLightHueTicker` from `@igrs/circahue`, plus:
+Same options as `createLightHueTicker` from `chronohue`, plus:
 
 | Option | Meaning                                                                  |
 | ------ | ------------------------------------------------------------------------ |
@@ -89,9 +89,9 @@ Returns `{ snapshot, subscribe, refresh, stop }`.
 
 | Host        | Package                                                                      |
 | ----------- | ---------------------------------------------------------------------------- |
-| Core        | [`@igrs/circahue`](https://github.com/isamarin/circahue)                     |
-| Tailwind    | [`@igrs/circahue-tailwind`](https://github.com/isamarin/circahue-tailwind)   |
-| Bootstrap 5 | [`@igrs/circahue-bootstrap`](https://github.com/isamarin/circahue-bootstrap) |
+| Core        | [`chronohue`](https://github.com/isamarin/chronohue)                     |
+| Tailwind    | [`@chronohue/tailwind`](https://github.com/isamarin/chronohue-tailwind)   |
+| Bootstrap 5 | [`@chronohue/bootstrap`](https://github.com/isamarin/chronohue-bootstrap) |
 
 ## License
 

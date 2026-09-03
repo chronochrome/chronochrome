@@ -1,7 +1,7 @@
-import type { LightHueSnapshot, SeasonMode } from "@igrs/circahue";
+import type { LightHueSnapshot, SeasonMode } from "chronohue";
 import type { Component, Snippet } from "svelte";
 
-export interface CircaHueProps {
+export interface ChronoHueProps {
   latitude?: number;
   timeZone?: string;
   season?: SeasonMode;
@@ -12,5 +12,5 @@ export interface CircaHueProps {
   children?: Snippet<[{ snapshot: LightHueSnapshot }]>;
 }
 
-declare const CircaHue: Component<CircaHueProps>;
-export default CircaHue;
+declare const ChronoHue: Component<ChronoHueProps>;
+export default ChronoHue;

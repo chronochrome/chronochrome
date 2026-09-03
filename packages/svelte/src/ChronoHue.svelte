@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { createCircaHue } from "@igrs/circahue-svelte";
-  import type { LightHueSnapshot, SeasonMode } from "@igrs/circahue";
+  import { createChronoHue } from "@chronohue/svelte";
+  import type { LightHueSnapshot, SeasonMode } from "chronohue";
   import type { Snippet } from "svelte";
 
   let {
@@ -23,7 +23,7 @@
     children?: Snippet<[{ snapshot: LightHueSnapshot }]>;
   } = $props();
 
-  const hue = createCircaHue({
+  const hue = createChronoHue({
     latitude,
     timeZone,
     season,

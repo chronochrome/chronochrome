@@ -1,21 +1,21 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { createCircaHue, start } from "../src/store.js";
+import { createChronoHue, start } from "../src/store.js";
 
 const FIXED = new Date("2026-07-01T12:00:00Z");
 
-describe("createCircaHue", () => {
+describe("createChronoHue", () => {
   const handles: { stop: () => void }[] = [];
   afterEach(() => {
     for (const h of handles) h.stop();
     handles.length = 0;
   });
 
-  it("start is an alias of createCircaHue", () => {
-    expect(start).toBe(createCircaHue);
+  it("start is an alias of createChronoHue", () => {
+    expect(start).toBe(createChronoHue);
   });
 
   it("samples immediately and exposes a hex accent", () => {
-    const hue = createCircaHue({
+    const hue = createChronoHue({
       at: FIXED,
       hourOverride: 12,
       season: "summer",
@@ -28,7 +28,7 @@ describe("createCircaHue", () => {
   });
 
   it("is a readable store: subscribe now, on refresh, unsubscribe", () => {
-    const hue = createCircaHue({
+    const hue = createChronoHue({
       at: FIXED,
       hourOverride: 18,
       season: "mid",
