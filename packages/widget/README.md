@@ -1,19 +1,19 @@
-# @circahue/widget
+# @chronohue/widget
 
 Sun and moon on their day arcs. Same look as the Lumina / isamarin sky: one SVG, `viewBox` 300×150, discs in that space — never stretched with `preserveAspectRatio="none"`.
 
-Math stays in [`@igrs/circahue`](https://www.npmjs.com/package/@igrs/circahue). This package only draws.
+Math stays in [`chronohue`](https://www.npmjs.com/package/chronohue). This package only draws.
 
 ## Install
 
 ```bash
-npm install @circahue/widget @igrs/circahue
+npm install @chronohue/widget chronohue
 ```
 
 ```ts
-import { sampleLightHue } from "@igrs/circahue";
-import { ARC_HEIGHT, mountSky } from "@circahue/widget";
-import "@circahue/widget/sky.css";
+import { sampleLightHue } from "chronohue";
+import { ARC_HEIGHT, mountSky } from "@chronohue/widget";
+import "@chronohue/widget/sky.css";
 
 const snap = sampleLightHue({
   latitude: 57.63,
@@ -34,7 +34,7 @@ const sky = mountSky(document.querySelector("#sky")!, {
 Chart-only (host already has a dial):
 
 ```ts
-import { drawSky } from "@circahue/widget";
+import { drawSky } from "@chronohue/widget";
 
 drawSky(document.querySelector("svg")!, snap);
 ```
@@ -45,4 +45,4 @@ The demo painted discs in a 300×286 viewBox, then stretched the SVG to a wide f
 
 ## Repo
 
-https://github.com/circahue/widget
+https://github.com/chronohue/widget

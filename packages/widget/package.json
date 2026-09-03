@@ -1,7 +1,7 @@
 {
-  "name": "@circahue/widget",
+  "name": "@chronohue/widget",
   "version": "0.1.0",
-  "description": "CircaHue sky widget — sun and moon on their day arcs",
+  "description": "ChronoHue sky widget — sun and moon on their day arcs",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -39,14 +39,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/circahue/widget.git"
+    "url": "git+https://github.com/chronohue/widget.git"
   },
   "bugs": {
-    "url": "https://github.com/circahue/widget/issues"
+    "url": "https://github.com/chronohue/widget/issues"
   },
-  "homepage": "https://github.com/circahue/widget#readme",
+  "homepage": "https://github.com/chronohue/widget#readme",
   "keywords": [
-    "circahue",
+    "chronohue",
     "sun",
     "moon",
     "sky",
@@ -60,11 +60,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@igrs/circahue": "^0.1.1"
+    "chronohue": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@igrs/circahue": "^0.1.1",
+    "chronohue": "^1.0.0",
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.9.0",
