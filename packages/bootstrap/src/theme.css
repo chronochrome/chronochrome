@@ -1,8 +1,8 @@
 /**
- * CircaHue → Bootstrap 5.3 theme.
+ * ChronoHue → Bootstrap 5.3 theme.
  *
  * @import "bootstrap/dist/css/bootstrap.min.css";
- * @import "@igrs/circahue-bootstrap/theme.css";
+ * @import "@chronohue/bootstrap/theme.css";
  *
  * Runtime hex / rgb come from start(). This file remaps Bootstrap surfaces
  * that do not automatically follow --bs-primary (notably .btn-primary).
