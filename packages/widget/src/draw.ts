@@ -1,4 +1,4 @@
-import type { LightHueSnapshot } from "@igrs/circahue";
+import type { LightHueSnapshot } from "chronohue";
 
 /** Chart height Lumina and isamarin use. Matches a 2:1 viewBox (300×150). */
 export const ARC_HEIGHT = 150;

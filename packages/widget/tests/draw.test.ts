@@ -1,4 +1,4 @@
-import { sampleLightHue } from "@igrs/circahue";
+import { sampleLightHue } from "chronohue";
 import { describe, expect, it } from "vitest";
 import { ARC_HEIGHT, drawSky } from "../src/draw.js";
 
