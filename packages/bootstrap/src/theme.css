@@ -1,0 +1,72 @@
+/**
+ * ChronoHue → Bootstrap 5.3 theme.
+ *
+ * @import "bootstrap/dist/css/bootstrap.min.css";
+ * @import "@chronohue/bootstrap/theme.css";
+ *
+ * Runtime hex / rgb come from start(). This file remaps Bootstrap surfaces
+ * that do not automatically follow --bs-primary (notably .btn-primary).
+ */
+
+:root,
+[data-bs-theme="light"] {
+  --accent-primary: #ffe4a0;
+  --accent-primary-hover: #fff4b4;
+  --accent-primary-dim: #b3a070;
+  --light-hue-glow-rgb: 255, 228, 160;
+  --light-hue-glow-alpha: 0.35;
+  --light-hue-glow-blur: 12px;
+  --light-hue-ring-rgb: 255, 228, 160;
+  --light-hue-ring-alpha: 0.4;
+  --light-hue-rgb: 255, 228, 160;
+
+  --bs-primary: var(--accent-primary);
+  --bs-primary-rgb: var(--light-hue-rgb);
+  --bs-primary-text-emphasis: color-mix(in srgb, var(--accent-primary) 80%, #000);
+  --bs-primary-bg-subtle: color-mix(in srgb, var(--accent-primary) 16%, #fff);
+  --bs-primary-border-subtle: color-mix(in srgb, var(--accent-primary) 40%, #fff);
+  --bs-link-color: var(--accent-primary);
+  --bs-link-color-rgb: var(--light-hue-rgb);
+  --bs-link-hover-color: var(--accent-primary-hover);
+  --bs-link-hover-color-rgb: var(--light-hue-rgb);
+  --bs-focus-ring-color: rgba(var(--light-hue-glow-rgb), var(--light-hue-glow-alpha));
+}
+
+[data-bs-theme="dark"] {
+  --bs-primary: var(--accent-primary);
+  --bs-primary-rgb: var(--light-hue-rgb);
+  --bs-primary-text-emphasis: color-mix(in srgb, var(--accent-primary) 75%, #fff);
+  --bs-primary-bg-subtle: color-mix(in srgb, var(--accent-primary) 20%, #000);
+  --bs-primary-border-subtle: color-mix(in srgb, var(--accent-primary) 40%, #000);
+  --bs-link-color: var(--accent-primary);
+  --bs-link-color-rgb: var(--light-hue-rgb);
+  --bs-link-hover-color: var(--accent-primary-hover);
+  --bs-focus-ring-color: rgba(var(--light-hue-glow-rgb), var(--light-hue-glow-alpha));
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--accent-primary);
+  --bs-btn-border-color: var(--accent-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--accent-primary-hover);
+  --bs-btn-hover-border-color: var(--accent-primary-hover);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--accent-primary-hover);
+  --bs-btn-active-border-color: var(--accent-primary-hover);
+  --bs-btn-disabled-bg: var(--accent-primary);
+  --bs-btn-disabled-border-color: var(--accent-primary);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--accent-primary);
+  --bs-btn-border-color: var(--accent-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--accent-primary);
+  --bs-btn-hover-border-color: var(--accent-primary);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--accent-primary);
+  --bs-btn-active-border-color: var(--accent-primary);
+  --bs-btn-disabled-color: var(--accent-primary);
+  --bs-btn-disabled-border-color: var(--accent-primary);
+}
