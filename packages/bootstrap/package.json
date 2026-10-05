@@ -1,6 +1,6 @@
 {
   "name": "@chronochrome/bootstrap",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ChronoChrome adapter for Bootstrap 5 — living accent as --bs-primary",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -57,7 +57,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "chronochrome": "^1.0.0",
+    "chronochrome": "^2.0.0",
     "bootstrap": ">=5.3.0"
   },
   "peerDependenciesMeta": {

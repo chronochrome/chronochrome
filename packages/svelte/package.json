@@ -1,6 +1,6 @@
 {
   "name": "@chronochrome/svelte",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ChronoChrome adapter for Svelte 5 — living accent as a store and <ChronoChrome>",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -63,7 +63,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "chronochrome": "^1.0.0",
+    "chronochrome": "^2.0.0",
     "svelte": "^5.0.0"
   },
   "peerDependenciesMeta": {

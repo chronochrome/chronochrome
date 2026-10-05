@@ -1,6 +1,6 @@
 {
   "name": "chronochrome",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Circadian accent hues from clock time, season, and latitude — pure TypeScript, zero DOM",
   "type": "module",
   "main": "./dist/index.cjs",

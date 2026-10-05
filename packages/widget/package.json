@@ -1,6 +1,6 @@
 {
   "name": "@chronochrome/widget",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ChronoChrome sky widget — sun and moon on their day arcs",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -57,7 +57,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "chronochrome": "^1.0.0"
+    "chronochrome": "^2.0.0"
   },
   "devDependencies": {
     "chronochrome": "workspace:^",
