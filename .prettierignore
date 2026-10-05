@@ -1,0 +1,7 @@
+dist
+site
+node_modules
+coverage
+pnpm-lock.yaml
+*.tgz
+.changeset/*.md
