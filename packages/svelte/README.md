@@ -59,14 +59,16 @@ Call `hue.stop()` in an `$effect` cleanup if the store is created inside a compo
 
 ## `<ChronoChrome>`
 
-Snippet-style wrapper that owns the ticker lifetime:
+Snippet-style wrapper that owns the ticker lifetime. Props: `latitude`, `longitude`,
+`timeZone`, `hourMode`, `season`, `intervalMs`, `hourOverride`, `locale`, `includeArcs`.
+They are read once on mount.
 
 ```svelte
 <script>
   import ChronoChrome from "@chronochrome/svelte/ChronoChrome.svelte";
 </script>
 
-<ChronoChrome latitude={57.63} timeZone="Europe/Moscow">
+<ChronoChrome latitude={57.63} longitude={39.88} timeZone="Europe/Moscow" hourMode="solar">
   {#snippet children({ snapshot })}
     <mark style="background: {snapshot.accent.hex}">{snapshot.phaseLabel}</mark>
   {/snippet}

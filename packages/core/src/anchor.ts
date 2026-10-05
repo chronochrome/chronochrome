@@ -29,8 +29,10 @@ export interface SolarAnchors {
  * Piecewise-linear warp of `hour` through the anchor pairs
  * (0, 0) → (sunrise, 6.5) → (noon, 12) → (sunset, 18) → (24, 24).
  *
- * Returns `hour` unchanged when the anchors cannot form a strictly increasing
- * axis — polar day and night, or a sun that never crosses the horizon.
+ * Through polar day and polar night there is no sunrise or sunset, so only
+ * the noon pair remains and the axis is shifted onto solar noon rather than
+ * stretched. Returns `hour` unchanged when the anchors cannot form a strictly
+ * increasing axis.
  */
 export function solarAnchoredHour(hour: number, anchors: SolarAnchors): number {
   const from: number[] = [0];

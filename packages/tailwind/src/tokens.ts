@@ -7,10 +7,10 @@ export const tailwindAccentColors = {
     DEFAULT: "var(--accent-primary)",
     hover: "var(--accent-primary-hover)",
     dim: "var(--accent-primary-dim)",
-    glow: "rgb(var(--light-hue-glow-rgb) / var(--light-hue-glow-alpha))",
-    ring: "rgb(var(--light-hue-ring-rgb) / var(--light-hue-ring-alpha))",
+    glow: "rgba(var(--light-hue-glow-rgb), var(--light-hue-glow-alpha))",
+    ring: "rgba(var(--light-hue-ring-rgb), var(--light-hue-ring-alpha))",
   },
 } as const;
 
 export const tailwindAccentShadow =
-  "0 0 var(--light-hue-glow-blur) rgb(var(--light-hue-glow-rgb) / var(--light-hue-glow-alpha))";
+  "0 0 var(--light-hue-glow-blur) rgba(var(--light-hue-glow-rgb), var(--light-hue-glow-alpha))";

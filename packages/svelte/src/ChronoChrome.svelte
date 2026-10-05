@@ -5,7 +5,9 @@
 
   let {
     latitude,
+    longitude,
     timeZone,
+    hourMode,
     season = "auto",
     intervalMs = 60_000,
     hourOverride,
@@ -14,7 +16,9 @@
     children,
   }: {
     latitude?: number;
+    longitude?: number;
     timeZone?: string;
+    hourMode?: "clock" | "solar";
     season?: SeasonMode;
     intervalMs?: number;
     hourOverride?: number;
@@ -25,7 +29,9 @@
 
   const hue = createChronoChrome({
     latitude,
+    longitude,
     timeZone,
+    hourMode,
     season,
     intervalMs,
     hourOverride,

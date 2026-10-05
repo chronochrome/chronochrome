@@ -45,8 +45,8 @@ export interface LightHueOptions {
    * `solar` stretches the palette's hour axis so the observer's real sunrise,
    * solar noon and sunset land on the keyframes built for them. Needs
    * `longitude` to be meaningful. Away from mid-latitude spring the two differ
-   * sharply: in Murmansk in June `clock` lights the sunrise hue at 06:30, five
-   * hours after the sun came up.
+   * sharply: in Murmansk in late July `clock` lights the sunrise hue at 06:30,
+   * nearly five hours after the sun came up.
    */
   hourMode?: "clock" | "solar";
   /** Season shaping of glow intensity / sun disc size. Default `auto`. */

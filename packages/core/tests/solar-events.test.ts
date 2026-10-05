@@ -160,3 +160,15 @@ describe("solar-anchored palette", () => {
     expect(snap.accent.hex).toBe(sampleLightHue({ ...opts, hourMode: "clock" }).accent.hex);
   });
 });
+
+describe("solar anchoring through polar day", () => {
+  it("still shifts the palette onto solar noon when there is no sunrise", () => {
+    // Murmansk, mid-June: the sun never sets, only the noon anchor survives.
+    const at = new Date("2026-06-15T12:00:00+03:00");
+    const place = { latitude: 68.97, longitude: 33.08, timeZone: "Europe/Moscow" };
+    expect(solarEvents({ at, ...place }).alwaysAbove).toBe(true);
+    const snap = sampleLightHue({ at, ...place, hourMode: "solar" });
+    expect(snap.paletteHour).not.toBe(snap.hour);
+    expect(snap.paletteHour).toBeLessThan(snap.hour);
+  });
+});

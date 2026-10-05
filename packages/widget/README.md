@@ -15,18 +15,17 @@ import { sampleLightHue } from "chronochrome";
 import { ARC_HEIGHT, mountSky } from "@chronochrome/widget";
 import "@chronochrome/widget/sky.css";
 
-const snap = sampleLightHue({
-  latitude: 57.63,
-  timeZone: "Europe/Moscow",
-  includeArcs: true,
-  arcHeight: ARC_HEIGHT, // 150 — keep this
-});
+const place = { latitude: 57.63, timeZone: "Europe/Moscow" };
+const chart = { includeArcs: true, arcHeight: ARC_HEIGHT }; // 150 — keep this
+
+const snap = sampleLightHue({ ...place, ...chart });
 
 const sky = mountSky(document.querySelector("#sky")!, {
   snapshot: snap,
   controls: true,
   onHour: (hour) => {
-    sky.update(sampleLightHue({ hourOverride: hour, includeArcs: true, arcHeight: ARC_HEIGHT }));
+    // Re-sample for the same place — only the hour changes.
+    sky.update(sampleLightHue({ ...place, ...chart, hourOverride: hour }));
   },
 });
 ```

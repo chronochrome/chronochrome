@@ -74,7 +74,8 @@ interface LightHueOptions {
   hourOverride?: number; // 0–24
   timeZone?: string; // IANA, e.g. "Europe/Moscow"
   latitude?: number; // default 55.75
-  longitude?: number; // reserved
+  longitude?: number; // degrees east; needed for hourMode "solar" (defaults to 0° — Greenwich)
+  hourMode?: "clock" | "solar"; // default "clock", see "Anchoring the palette to the sun"
   season?: "auto" | "winter" | "mid" | "summer";
   includeArcs?: boolean;
   arcHeight?: number;
@@ -110,8 +111,8 @@ passed, and returns `null` through polar night.
 ## Anchoring the palette to the sun
 
 `DAY_STOPS` is keyed on hour: sunrise colour at 6.5, zenith at 12, sunset at 18.
-That holds around 50°N in spring and nowhere else — in Murmansk in June the sun is
-up at 01:00 while the clock palette only reaches its sunrise stop at 06:30.
+That holds around 50°N in spring and nowhere else — in Murmansk in late July the sun
+is up at 01:46 while the clock palette only reaches its sunrise stop at 06:30.
 
 `hourMode: "solar"` stretches the palette's hour axis so the observer's real
 sunrise, solar noon and sunset land on the keyframes built for them:
@@ -122,6 +123,12 @@ sampleLightHue({ ...place, hourMode: "solar" });
 
 Default stays `"clock"`, so published behaviour is unchanged. `snapshot.paletteHour`
 shows which hour the palette was actually read at.
+
+Pass `longitude` with `"solar"`: without it the observer is placed on the Greenwich
+meridian, which in Moscow moves solar noon by about two and a half hours. Through
+polar day or polar night there is no sunrise or sunset to pin, so only solar noon
+anchors the axis — the palette is shifted, not stretched, and the night stops still
+come at night by the clock even under the midnight sun.
 
 ## Ports
 

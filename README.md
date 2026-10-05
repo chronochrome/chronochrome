@@ -27,6 +27,43 @@ always has exactly one copy of the core.
 npm install chronochrome @chronochrome/tailwind
 ```
 
+## Quick start
+
+```ts
+import { sampleLightHue, applyCssVars, createLightHueTicker } from "chronochrome";
+
+const snap = sampleLightHue({
+  latitude: 57.63, // e.g. Yaroslavl
+  timeZone: "Europe/Moscow",
+  season: "auto", // auto | winter | mid | summer
+  hourOverride: 18, // optional dial / demo
+  includeArcs: true, // SVG sun/moon day chart
+});
+
+// browser
+applyCssVars(document.documentElement, snap.cssVars);
+
+const ticker = createLightHueTicker(
+  (s) => {
+    applyCssVars(document.documentElement, s.cssVars);
+  },
+  { latitude: 57.63, timeZone: "Europe/Moscow", intervalMs: 60_000 },
+);
+
+// later: ticker.stop();
+```
+
+## Documentation
+
+| Topic                                                                        | Where                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Full API, solar events, golden hour, anchoring to the sun, time zones, ports | [`packages/core/README.md`](packages/core/README.md)                   |
+| Tailwind v3 / v4                                                             | [`packages/tailwind/README.md`](packages/tailwind/README.md)           |
+| Svelte 5                                                                     | [`packages/svelte/README.md`](packages/svelte/README.md)               |
+| Bootstrap 5                                                                  | [`packages/bootstrap/README.md`](packages/bootstrap/README.md)         |
+| Sky widget                                                                   | [`packages/widget/README.md`](packages/widget/README.md)               |
+| Cross-language ports: reference values                                       | [`packages/core/vectors/solar.json`](packages/core/vectors/solar.json) |
+
 ## Development
 
 Requires Node ≥ 18 and pnpm 9 (`corepack enable`).

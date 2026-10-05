@@ -24,9 +24,9 @@
   --color-accent: var(--accent-primary);
   --color-accent-hover: var(--accent-primary-hover);
   --color-accent-dim: var(--accent-primary-dim);
-  --color-accent-glow: rgb(var(--light-hue-glow-rgb) / var(--light-hue-glow-alpha));
-  --color-accent-ring: rgb(var(--light-hue-ring-rgb) / var(--light-hue-ring-alpha));
+  --color-accent-glow: rgba(var(--light-hue-glow-rgb), var(--light-hue-glow-alpha));
+  --color-accent-ring: rgba(var(--light-hue-ring-rgb), var(--light-hue-ring-alpha));
 
   --shadow-accent: 0 0 var(--light-hue-glow-blur)
-    rgb(var(--light-hue-glow-rgb) / var(--light-hue-glow-alpha));
+    rgba(var(--light-hue-glow-rgb), var(--light-hue-glow-alpha));
 }
