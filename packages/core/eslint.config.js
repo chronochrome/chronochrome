@@ -6,14 +6,7 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    ignores: [
-      "dist/**",
-      "site/**",
-      "chronohue-widget/**",
-      "node_modules/**",
-      "coverage/**",
-      "*.tgz",
-    ],
+    ignores: ["dist/**", "node_modules/**", "coverage/**", "*.tgz"],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
@@ -65,14 +58,7 @@ export default tseslint.config(
     rules: { "no-console": "off" },
   },
   {
-    files: [
-      "tests/**/*.ts",
-      "dev/**/*.ts",
-      "*.config.ts",
-      "eslint.config.js",
-      "vitest.config.ts",
-      "vite.config.ts",
-    ],
+    files: ["tests/**/*.ts", "*.config.ts", "eslint.config.js", "vitest.config.ts"],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
       globals: {

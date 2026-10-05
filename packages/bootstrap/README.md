@@ -1,26 +1,26 @@
-# @chronohue/bootstrap
+# @chronochrome/bootstrap
 
-ChronoHue living accent as Bootstrap 5 primary. Two lines, then `.btn-primary` follows the sky.
+ChronoChrome living accent as Bootstrap 5 primary. Two lines, then `.btn-primary` follows the sky.
 
-Core ChronoHue is framework-free. This adapter is the fast path for Bootstrap 5.3+.
+Core ChronoChrome is framework-free. This adapter is the fast path for Bootstrap 5.3+.
 
-[![npm](https://img.shields.io/npm/v/@chronohue/bootstrap.svg)](https://www.npmjs.com/package/@chronohue/bootstrap)
+[![npm](https://img.shields.io/npm/v/@chronochrome/bootstrap.svg)](https://www.npmjs.com/package/@chronochrome/bootstrap)
 
 ## Install
 
 ```bash
-npm install chronohue @chronohue/bootstrap
+npm install chronochrome @chronochrome/bootstrap
 ```
 
 ## Quick start
 
 ```css
 @import "bootstrap/dist/css/bootstrap.min.css";
-@import "@chronohue/bootstrap/theme.css";
+@import "@chronochrome/bootstrap/theme.css";
 ```
 
 ```ts
-import { start } from "@chronohue/bootstrap";
+import { start } from "@chronochrome/bootstrap";
 
 start({
   latitude: 57.63,
@@ -34,7 +34,7 @@ start({
 <span class="badge text-bg-primary">now</span>
 ```
 
-`start()` writes ChronoHue vars **and** `--bs-primary` / `--bs-primary-rgb` / link tokens. `theme.css` remaps `.btn-primary` and `.btn-outline-primary`, which Bootstrap compiles with Sass and would otherwise ignore runtime `--bs-primary`.
+`start()` writes ChronoChrome vars **and** `--bs-primary` / `--bs-primary-rgb` / link tokens. `theme.css` remaps `.btn-primary` and `.btn-outline-primary`, which Bootstrap compiles with Sass and would otherwise ignore runtime `--bs-primary`.
 
 ## What moves
 
@@ -51,9 +51,9 @@ start({
 
 ## API
 
-### `start(opts?): ChronoHueHandle`
+### `start(opts?): ChronoChromeHandle`
 
-Same options as `createLightHueTicker` from `chronohue`, plus `el`.
+Same options as `createLightHueTicker` from `chronochrome`, plus `el`.
 
 ```ts
 const hue = start({ latitude: 40.71, timeZone: "America/New_York" });
@@ -67,11 +67,11 @@ Pure map if you already have a snapshot and want to apply it yourself.
 
 ## Sibling adapters
 
-| Host     | Package                                                                    |
-| -------- | -------------------------------------------------------------------------- |
-| Core     | [`chronohue`](https://github.com/isamarin/chronohue)                   |
-| Tailwind | [`@chronohue/tailwind`](https://github.com/isamarin/chronohue-tailwind) |
-| Svelte 5 | [`@chronohue/svelte`](https://github.com/isamarin/chronohue-svelte)     |
+| Host     | Package                                                                                              |
+| -------- | ---------------------------------------------------------------------------------------------------- |
+| Core     | [`chronochrome`](https://github.com/chronochrome/chronochrome/tree/main/packages/core)               |
+| Tailwind | [`@chronochrome/tailwind`](https://github.com/chronochrome/chronochrome/tree/main/packages/tailwind) |
+| Svelte 5 | [`@chronochrome/svelte`](https://github.com/chronochrome/chronochrome/tree/main/packages/svelte)     |
 
 ## License
 

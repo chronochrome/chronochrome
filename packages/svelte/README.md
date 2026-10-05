@@ -1,15 +1,15 @@
-# @chronohue/svelte
+# @chronochrome/svelte
 
-ChronoHue living accent for Svelte 5. One `start()` in the layout — or `$hue` when you need the snapshot.
+ChronoChrome living accent for Svelte 5. One `start()` in the layout — or `$hue` when you need the snapshot.
 
-Core ChronoHue is framework-free. This adapter is the fast path: a readable store plus an optional `<ChronoHue>` component.
+Core ChronoChrome is framework-free. This adapter is the fast path: a readable store plus an optional `<ChronoChrome>` component.
 
-[![npm](https://img.shields.io/npm/v/@chronohue/svelte.svg)](https://www.npmjs.com/package/@chronohue/svelte)
+[![npm](https://img.shields.io/npm/v/@chronochrome/svelte.svg)](https://www.npmjs.com/package/@chronochrome/svelte)
 
 ## Install
 
 ```bash
-npm install chronohue @chronohue/svelte
+npm install chronochrome @chronochrome/svelte
 ```
 
 ## Quick start
@@ -18,7 +18,7 @@ npm install chronohue @chronohue/svelte
 
 ```svelte
 <script>
-  import { start } from "@chronohue/svelte";
+  import { start } from "@chronochrome/svelte";
 
   start({
     latitude: 57.63,
@@ -40,13 +40,13 @@ button.brand:hover {
 
 ## Reactive snapshot
 
-`start` / `createChronoHue` is a Svelte readable store, so `$hue` just works:
+`start` / `createChronoChrome` is a Svelte readable store, so `$hue` just works:
 
 ```svelte
 <script>
-  import { createChronoHue } from "@chronohue/svelte";
+  import { createChronoChrome } from "@chronochrome/svelte";
 
-  const hue = createChronoHue({
+  const hue = createChronoChrome({
     latitude: 57.63,
     timeZone: "Europe/Moscow",
   });
@@ -57,27 +57,27 @@ button.brand:hover {
 
 Call `hue.stop()` in an `$effect` cleanup if the store is created inside a component that can unmount.
 
-## `<ChronoHue>`
+## `<ChronoChrome>`
 
 Snippet-style wrapper that owns the ticker lifetime:
 
 ```svelte
 <script>
-  import ChronoHue from "@chronohue/svelte/ChronoHue.svelte";
+  import ChronoChrome from "@chronochrome/svelte/ChronoChrome.svelte";
 </script>
 
-<ChronoHue latitude={57.63} timeZone="Europe/Moscow">
+<ChronoChrome latitude={57.63} timeZone="Europe/Moscow">
   {#snippet children({ snapshot })}
     <mark style="background: {snapshot.accent.hex}">{snapshot.phaseLabel}</mark>
   {/snippet}
-</ChronoHue>
+</ChronoChrome>
 ```
 
 ## API
 
-### `createChronoHue(opts?)` / `start(opts?)`
+### `createChronoChrome(opts?)` / `start(opts?)`
 
-Same options as `createLightHueTicker` from `chronohue`, plus:
+Same options as `createLightHueTicker` from `chronochrome`, plus:
 
 | Option | Meaning                                                                  |
 | ------ | ------------------------------------------------------------------------ |
@@ -87,11 +87,11 @@ Returns `{ snapshot, subscribe, refresh, stop }`.
 
 ## Sibling adapters
 
-| Host        | Package                                                                      |
-| ----------- | ---------------------------------------------------------------------------- |
-| Core        | [`chronohue`](https://github.com/isamarin/chronohue)                     |
-| Tailwind    | [`@chronohue/tailwind`](https://github.com/isamarin/chronohue-tailwind)   |
-| Bootstrap 5 | [`@chronohue/bootstrap`](https://github.com/isamarin/chronohue-bootstrap) |
+| Host        | Package                                                                                                |
+| ----------- | ------------------------------------------------------------------------------------------------------ |
+| Core        | [`chronochrome`](https://github.com/chronochrome/chronochrome/tree/main/packages/core)                 |
+| Tailwind    | [`@chronochrome/tailwind`](https://github.com/chronochrome/chronochrome/tree/main/packages/tailwind)   |
+| Bootstrap 5 | [`@chronochrome/bootstrap`](https://github.com/chronochrome/chronochrome/tree/main/packages/bootstrap) |
 
 ## License
 

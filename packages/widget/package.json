@@ -1,7 +1,7 @@
 {
-  "name": "@chronohue/widget",
+  "name": "@chronochrome/widget",
   "version": "0.1.0",
-  "description": "ChronoHue sky widget — sun and moon on their day arcs",
+  "description": "ChronoChrome sky widget — sun and moon on their day arcs",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -31,22 +31,19 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "publint": "npm run build && publint",
-    "quality": "npm run typecheck && npm run lint && npm run format:check && npm run test && npm run publint"
+    "publint": "publint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chronohue/widget.git"
+    "url": "git+https://github.com/chronochrome/chronochrome.git",
+    "directory": "packages/widget"
   },
   "bugs": {
-    "url": "https://github.com/chronohue/widget/issues"
+    "url": "https://github.com/chronochrome/chronochrome/issues"
   },
-  "homepage": "https://github.com/chronohue/widget#readme",
+  "homepage": "https://github.com/chronochrome/chronochrome/tree/main/packages/widget#readme",
   "keywords": [
-    "chronohue",
+    "chronochrome",
     "sun",
     "moon",
     "sky",
@@ -60,21 +57,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "chronohue": "^1.0.0"
+    "chronochrome": "^1.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "chronohue": "^1.0.0",
-    "eslint": "^10.8.0",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^17.9.0",
-    "jsdom": "^26.1.0",
-    "prettier": "^3.9.6",
-    "publint": "^0.3.23",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.66.0",
-    "vitest": "^3.2.4"
+    "chronochrome": "workspace:^",
+    "jsdom": "^26.1.0"
   },
   "sideEffects": [
     "*.css"

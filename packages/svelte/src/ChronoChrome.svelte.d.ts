@@ -1,7 +1,7 @@
-import type { LightHueSnapshot, SeasonMode } from "chronohue";
+import type { LightHueSnapshot, SeasonMode } from "chronochrome";
 import type { Component, Snippet } from "svelte";
 
-export interface ChronoHueProps {
+export interface ChronoChromeProps {
   latitude?: number;
   timeZone?: string;
   season?: SeasonMode;
@@ -12,5 +12,5 @@ export interface ChronoHueProps {
   children?: Snippet<[{ snapshot: LightHueSnapshot }]>;
 }
 
-declare const ChronoHue: Component<ChronoHueProps>;
-export default ChronoHue;
+declare const ChronoChrome: Component<ChronoChromeProps>;
+export default ChronoChrome;

@@ -4,7 +4,7 @@ on:
   push:
     branches: [main, master]
     paths:
-      - "deploy/pages-redirect/**"
+      - "apps/demo/deploy/pages-redirect/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -33,7 +33,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: deploy/pages-redirect
+          path: apps/demo/deploy/pages-redirect
 
       - id: deployment
         uses: actions/deploy-pages@v4

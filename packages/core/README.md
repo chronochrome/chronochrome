@@ -1,35 +1,35 @@
-# chronohue
+# chronochrome
 
 **Circadian accent hues** from clock time, season, and observer latitude.
 
 Pure TypeScript — **no DOM, no React, zero runtime deps**.  
-Born as the Lightmotiv “living light” accent (code name _light-hue_); npm package **`chronohue`**.
+Born as the Lightmotiv “living light” accent (code name _light-hue_); npm package **`chronochrome`**.
 
-[![CI](https://github.com/chronohue/chronohue/actions/workflows/ci.yml/badge.svg)](https://github.com/chronohue/chronohue/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/chronohue.svg)](https://www.npmjs.com/package/chronohue)
+[![CI](https://github.com/chronochrome/chronochrome/actions/workflows/ci.yml/badge.svg)](https://github.com/chronochrome/chronochrome/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/chronochrome.svg)](https://www.npmjs.com/package/chronochrome)
 
 ## Install
 
 ```bash
-npm install chronohue
+npm install chronochrome
 ```
 
 ## Adapters
 
 Core stays framework-free. For a 30-second drop-in:
 
-| Host             | Package                                                                    | Fast path                          |
-| ---------------- | -------------------------------------------------------------------------- | ---------------------------------- |
-| Tailwind v3 / v4 | [`@chronohue/tailwind`](https://github.com/chronohue/chronohue-tailwind)   | `start()` + `bg-accent`            |
-| Svelte 5         | [`@chronohue/svelte`](https://github.com/chronohue/chronohue-svelte)       | `start()` / `$hue` / `<ChronoHue>` |
-| Bootstrap 5      | [`@chronohue/bootstrap`](https://github.com/chronohue/chronohue-bootstrap) | `start()` + `.btn-primary`         |
+| Host             | Package                                                                                                | Fast path                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| Tailwind v3 / v4 | [`@chronochrome/tailwind`](https://github.com/chronochrome/chronochrome/tree/main/packages/tailwind)   | `start()` + `bg-accent`               |
+| Svelte 5         | [`@chronochrome/svelte`](https://github.com/chronochrome/chronochrome/tree/main/packages/svelte)       | `start()` / `$hue` / `<ChronoChrome>` |
+| Bootstrap 5      | [`@chronochrome/bootstrap`](https://github.com/chronochrome/chronochrome/tree/main/packages/bootstrap) | `start()` + `.btn-primary`            |
 
-Local siblings next to this repo: `../tailwind-adapter`, `../svelte5-adapter`, `../bootstrap-adapter`.
+All adapters live in the [chronochrome monorepo](https://github.com/chronochrome/chronochrome).
 
 ## Quick start
 
 ```ts
-import { sampleLightHue, applyCssVars, createLightHueTicker } from "chronohue";
+import { sampleLightHue, applyCssVars, createLightHueTicker } from "chronochrome";
 
 const snap = sampleLightHue({
   latitude: 57.63, // e.g. Yaroslavl
@@ -94,7 +94,7 @@ falls at 12:20 before the equation of time adds its own ±15 minutes.
 Anything you would schedule against goes through the accurate path instead:
 
 ```ts
-import { solarEvents, goldenHourWindows, currentOrNextGoldenHour } from "chronohue";
+import { solarEvents, goldenHourWindows, currentOrNextGoldenHour } from "chronochrome";
 
 const place = { latitude: 57.6261, longitude: 39.8845, timeZone: "Europe/Moscow" };
 
@@ -133,7 +133,7 @@ Two files are built for implementations in other languages:
 | `vectors/solar.json` | Reference solar values every port asserts against                  |
 
 The vectors are the contract. A port that drifts fails a test instead of quietly
-running twenty minutes late. Regenerate with `npm run artifacts`.
+running twenty minutes late. Regenerate with `pnpm --filter chronochrome artifacts`.
 
 ## Time zones
 
@@ -151,33 +151,17 @@ Moon age stays absolute (UTC). Latitude is explicit — pair zone + city lat you
 
 Live: **https://chronohue.isamarin.xyz/**
 
-The sun/moon chart is [`@chronohue/widget`](https://github.com/chronohue/widget) — same drawing as Lumina.
+The sun/moon chart is [`@chronochrome/widget`](https://github.com/chronochrome/chronochrome/tree/main/packages/widget) — same drawing as Lumina.
 
 Location / timezone / lat·lon, 24h dial, sun·moon chart, UI kit on CSS vars.
+Source: [`apps/demo`](https://github.com/chronochrome/chronochrome/tree/main/apps/demo).
 
-```bash
-npm install
-npm run dev              # → http://localhost:5173
-npm run build:demo       # → ./site
-bash deploy/deploy.sh    # rsync to Luma
-```
+## Development
 
-## Scripts
-
-```bash
-npm test
-npm run build
-npm run typecheck
-npm run lint          # ESLint
-npm run format:check  # Prettier
-npm run publint       # package export quality
-npm run quality       # all of the above + tests + build
-npm run build:demo    # static playground → ./site
-```
-
-## Publish
-
-See **[PUBLISH.md](./PUBLISH.md)** — npm, tags, CI, CDN.
+This package lives in the [chronochrome monorepo](https://github.com/chronochrome/chronochrome) —
+scripts, the demo and the release process are described in its root README and
+[PUBLISH.md](https://github.com/chronochrome/chronochrome/blob/main/PUBLISH.md).
+Regenerate the test vectors with `pnpm --filter chronochrome artifacts`.
 
 ## License
 

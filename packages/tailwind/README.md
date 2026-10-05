@@ -1,15 +1,15 @@
-# @chronohue/tailwind
+# @chronochrome/tailwind
 
-ChronoHue living accent as Tailwind tokens. Two lines, then `bg-accent`.
+ChronoChrome living accent as Tailwind tokens. Two lines, then `bg-accent`.
 
-Core ChronoHue is framework-free. This adapter is the fast path for Tailwind v3 and v4.
+Core ChronoChrome is framework-free. This adapter is the fast path for Tailwind v3 and v4.
 
-[![npm](https://img.shields.io/npm/v/@chronohue/tailwind.svg)](https://www.npmjs.com/package/@chronohue/tailwind)
+[![npm](https://img.shields.io/npm/v/@chronochrome/tailwind.svg)](https://www.npmjs.com/package/@chronochrome/tailwind)
 
 ## Install
 
 ```bash
-npm install chronohue @chronohue/tailwind
+npm install chronochrome @chronochrome/tailwind
 ```
 
 ## Quick start — Tailwind v4
@@ -17,11 +17,11 @@ npm install chronohue @chronohue/tailwind
 ```css
 /* app.css */
 @import "tailwindcss";
-@import "@chronohue/tailwind/theme.css";
+@import "@chronochrome/tailwind/theme.css";
 ```
 
 ```ts
-import { start } from "@chronohue/tailwind";
+import { start } from "@chronochrome/tailwind";
 
 start({
   latitude: 57.63, // Yaroslavl
@@ -33,23 +33,23 @@ start({
 <button class="bg-accent hover:bg-accent-hover text-black shadow-accent">Go</button>
 ```
 
-`start()` writes ChronoHue CSS vars onto `:root` and refreshes them once a minute. `@theme inline` maps those vars to utilities, so colors keep moving without a rebuild.
+`start()` writes ChronoChrome CSS vars onto `:root` and refreshes them once a minute. `@theme inline` maps those vars to utilities, so colors keep moving without a rebuild.
 
 ## Quick start — Tailwind v3
 
 ```js
 // tailwind.config.js
-import chronohue from "@chronohue/tailwind";
+import chronochrome from "@chronochrome/tailwind";
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{html,js,ts,jsx,tsx,svelte,vue}"],
-  plugins: [chronohue],
+  plugins: [chronochrome],
 };
 ```
 
 ```ts
-import { start } from "@chronohue/tailwind";
+import { start } from "@chronochrome/tailwind";
 
 start({ latitude: 57.63, timeZone: "Europe/Moscow" });
 ```
@@ -71,9 +71,9 @@ Brand accent ≠ status. Leave `green` / `red` for success / danger.
 
 ## API
 
-### `start(opts?): ChronoHueHandle`
+### `start(opts?): ChronoChromeHandle`
 
-Same options as `createLightHueTicker` from `chronohue`, plus `el` to paint a node other than `<html>`.
+Same options as `createLightHueTicker` from `chronochrome`, plus `el` to paint a node other than `<html>`.
 
 ```ts
 const hue = start({
@@ -91,11 +91,11 @@ hue.stop();
 
 ## Sibling adapters
 
-| Host        | Package                                                                      |
-| ----------- | ---------------------------------------------------------------------------- |
-| Core        | [`chronohue`](https://github.com/isamarin/chronohue)                     |
-| Svelte 5    | [`@chronohue/svelte`](https://github.com/isamarin/chronohue-svelte)       |
-| Bootstrap 5 | [`@chronohue/bootstrap`](https://github.com/isamarin/chronohue-bootstrap) |
+| Host        | Package                                                                                                |
+| ----------- | ------------------------------------------------------------------------------------------------------ |
+| Core        | [`chronochrome`](https://github.com/chronochrome/chronochrome/tree/main/packages/core)                 |
+| Svelte 5    | [`@chronochrome/svelte`](https://github.com/chronochrome/chronochrome/tree/main/packages/svelte)       |
+| Bootstrap 5 | [`@chronochrome/bootstrap`](https://github.com/chronochrome/chronochrome/tree/main/packages/bootstrap) |
 
 ## License
 

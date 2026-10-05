@@ -1,4 +1,4 @@
-import { sampleLightHue } from "chronohue";
+import { sampleLightHue } from "chronochrome";
 import { describe, expect, it } from "vitest";
 import { BOOTSTRAP_VAR_KEYS, bootstrapVars, hexToRgbCss } from "../src/map.js";
 

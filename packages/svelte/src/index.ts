@@ -1,6 +1,6 @@
 /**
- * @chronohue/svelte — ChronoHue living accent as a Svelte 5 store / component.
+ * @chronochrome/svelte — ChronoChrome living accent as a Svelte 5 store / component.
  */
-export { createChronoHue, start } from "./store.js";
-export type { StartOptions, ChronoHueStore } from "./store.js";
-export type { LightHueSnapshot, TickerOptions } from "chronohue";
+export { createChronoChrome, start } from "./store.js";
+export type { StartOptions, ChronoChromeStore } from "./store.js";
+export type { LightHueSnapshot, TickerOptions } from "chronochrome";

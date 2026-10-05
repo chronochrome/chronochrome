@@ -7,11 +7,10 @@ REMOTE="/var/www/chronohue.isamarin.xyz"
 
 cd "$ROOT"
 if [ "${SKIP_BUILD:-0}" != "1" ]; then
-  npm ci
-  npm run build:demo
+  (cd "$ROOT/../.." && pnpm install --frozen-lockfile && pnpm build:demo)
 fi
 if [ ! -d "${ROOT}/site" ]; then
-  echo "site/ missing — run npm run build:demo first" >&2
+  echo "site/ missing — run pnpm build:demo first" >&2
   exit 1
 fi
 

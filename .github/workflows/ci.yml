@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
 
 concurrency:
@@ -15,38 +15,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-
-      - name: Install
-        run: npm ci
-
-      - name: Typecheck
-        run: npm run typecheck
-
-      - name: ESLint
-        run: npm run lint
-
-      - name: Prettier
-        run: npm run format:check
-
-      - name: Test
-        run: npm test
-
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
       - name: Build
-        run: npm run build
-
-      - name: Publint (package quality)
-        run: npx publint
-
-      - name: npm pack (inspect tarball)
+        run: pnpm build
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: ESLint
+        run: pnpm lint
+      - name: Prettier
+        run: pnpm format:check
+      - name: Test
+        run: pnpm test
+      - name: Publint
+        run: pnpm publint
+      - name: Demo build
+        run: pnpm build:demo
+      - name: Inspect tarballs
         run: |
-          npm pack --dry-run
-          npm pack
-          tar -tzf igrs-chronohue-*.tgz | head -40
+          mkdir -p /tmp/tarballs
+          pnpm -r --filter './packages/*' exec pnpm pack --pack-destination /tmp/tarballs
+          for t in /tmp/tarballs/*.tgz; do echo "== $t"; tar -tzf "$t"; done
 
   test:
     name: Test (Node ${{ matrix.node }})
@@ -58,22 +51,16 @@ jobs:
         node: [18, 20, 22]
     steps:
       - uses: actions/checkout@v4
-
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: npm
-
-      - name: Install
-        run: npm ci
-
-      - name: Test
-        run: npm test
-
-      - name: Build
-        run: npm run build
-
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test
       - name: Smoke import (ESM)
+        working-directory: packages/core
         run: |
           node --input-type=module -e "
             import { sampleLightHue } from './dist/index.js';

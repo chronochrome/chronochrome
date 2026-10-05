@@ -5,7 +5,7 @@ import { tailwindAccentColors, tailwindAccentShadow } from "./tokens.js";
  * Prefer `theme.css` on Tailwind v4.
  * Shape matches `tailwindcss/plugin` without importing Tailwind at build time.
  */
-export const chronohuePlugin = {
+export const chronochromePlugin = {
   handler: () => {
     /* theme-only — runtime colors come from start() */
   },
@@ -21,4 +21,4 @@ export const chronohuePlugin = {
   },
 };
 
-export default chronohuePlugin;
+export default chronochromePlugin;

@@ -1,7 +1,7 @@
 {
-  "name": "@chronohue/bootstrap",
+  "name": "@chronochrome/bootstrap",
   "version": "0.1.0",
-  "description": "ChronoHue adapter for Bootstrap 5 — living accent as --bs-primary",
+  "description": "ChronoChrome adapter for Bootstrap 5 — living accent as --bs-primary",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -31,29 +31,24 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "publint": "npm run build && publint",
-    "quality": "npm run typecheck && npm run lint && npm run format:check && npm run test && npm run publint",
-    "prepublishOnly": "npm run quality"
+    "publint": "publint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isamarin/chronohue-bootstrap.git"
+    "url": "git+https://github.com/chronochrome/chronochrome.git",
+    "directory": "packages/bootstrap"
   },
   "bugs": {
-    "url": "https://github.com/isamarin/chronohue-bootstrap/issues"
+    "url": "https://github.com/chronochrome/chronochrome/issues"
   },
-  "homepage": "https://github.com/isamarin/chronohue-bootstrap#readme",
+  "homepage": "https://github.com/chronochrome/chronochrome/tree/main/packages/bootstrap#readme",
   "keywords": [
-    "chronohue",
+    "chronochrome",
     "bootstrap",
     "bootstrap5",
     "circadian",
     "accent",
-    "css-variables",
-    "igrs"
+    "css-variables"
   ],
   "author": "isamarin × BLMK",
   "license": "MIT",
@@ -62,7 +57,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "chronohue": "^1.0.0",
+    "chronochrome": "^1.0.0",
     "bootstrap": ">=5.3.0"
   },
   "peerDependenciesMeta": {
@@ -71,17 +66,7 @@
     }
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "chronohue": "^1.0.0",
-    "eslint": "^10.8.0",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^17.9.0",
-    "prettier": "^3.9.6",
-    "publint": "^0.3.23",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.66.0",
-    "vitest": "^3.2.4"
+    "chronochrome": "workspace:^"
   },
   "sideEffects": [
     "*.css"

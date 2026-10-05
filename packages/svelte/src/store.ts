@@ -5,14 +5,14 @@ import {
   type LightHueSnapshot,
   type LightHueTicker,
   type TickerOptions,
-} from "chronohue";
+} from "chronochrome";
 
 export interface StartOptions extends TickerOptions {
   /** Element to write CSS vars onto. Default: `document.documentElement`. `false` skips DOM. */
   el?: { style: { setProperty(name: string, value: string): void } } | null | false;
 }
 
-export interface ChronoHueStore extends LightHueTicker {
+export interface ChronoChromeStore extends LightHueTicker {
   readonly snapshot: LightHueSnapshot;
   subscribe: (fn: (snapshot: LightHueSnapshot) => void) => () => void;
 }
@@ -25,10 +25,10 @@ function resolveTarget(el: StartOptions["el"]): Parameters<typeof applyCssVars>[
 }
 
 /**
- * Svelte-store ChronoHue handle. Use as `$hue` in a component, or call `start()`
+ * Svelte-store ChronoChrome handle. Use as `$hue` in a component, or call `start()`
  * once in `+layout.svelte` and forget it — CSS vars stay on `<html>`.
  */
-export function createChronoHue(opts: StartOptions = {}): ChronoHueStore {
+export function createChronoChrome(opts: StartOptions = {}): ChronoChromeStore {
   const { el, ...tickerOpts } = opts;
   let snapshot = sampleLightHue(tickerOpts);
   const listeners = new Set<(s: LightHueSnapshot) => void>();
@@ -58,4 +58,4 @@ export function createChronoHue(opts: StartOptions = {}): ChronoHueStore {
 }
 
 /** Alias — same object, shorter import when you only want the one-liner. */
-export const start = createChronoHue;
+export const start = createChronoChrome;

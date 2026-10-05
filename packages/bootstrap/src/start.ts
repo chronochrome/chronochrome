@@ -5,7 +5,7 @@ import {
   type LightHueSnapshot,
   type LightHueTicker,
   type TickerOptions,
-} from "chronohue";
+} from "chronochrome";
 import { bootstrapVars } from "./map.js";
 
 export interface StartOptions extends TickerOptions {
@@ -13,7 +13,7 @@ export interface StartOptions extends TickerOptions {
   el?: { style: { setProperty(name: string, value: string): void } } | null;
 }
 
-export interface ChronoHueHandle extends LightHueTicker {
+export interface ChronoChromeHandle extends LightHueTicker {
   readonly snapshot: LightHueSnapshot;
   subscribe: (fn: (snapshot: LightHueSnapshot) => void) => () => void;
 }
@@ -25,9 +25,9 @@ function resolveTarget(el: StartOptions["el"]): Parameters<typeof applyCssVars>[
 }
 
 /**
- * Sample once, apply ChronoHue + Bootstrap primary vars, and keep them fresh.
+ * Sample once, apply ChronoChrome + Bootstrap primary vars, and keep them fresh.
  */
-export function start(opts: StartOptions = {}): ChronoHueHandle {
+export function start(opts: StartOptions = {}): ChronoChromeHandle {
   const { el, ...tickerOpts } = opts;
   let snapshot = sampleLightHue(tickerOpts);
   const listeners = new Set<(s: LightHueSnapshot) => void>();

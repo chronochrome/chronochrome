@@ -15,11 +15,9 @@
   "include": [
     "src/**/*.ts",
     "tests/**/*.ts",
-    "dev/**/*.ts",
     "*.config.ts",
     "eslint.config.js",
-    "vitest.config.ts",
-    "vite.config.ts"
+    "vitest.config.ts"
   ],
   "exclude": ["dist", "node_modules"]
 }

@@ -1,4 +1,4 @@
-import { formatHourClock, type LightHueSnapshot } from "chronohue";
+import { formatHourClock, type LightHueSnapshot } from "chronochrome";
 import { drawSky } from "./draw.js";
 
 export interface SkyMountOptions {
@@ -73,7 +73,7 @@ export function mountSky(host: HTMLElement, opts: SkyMountOptions = {}): SkyHand
     note.className = "ch-sky-note";
     note.textContent =
       opts.note ??
-      "Every accent is computed from this sky — clock, season and latitude — by chronohue.";
+      "Every accent is computed from this sky — clock, season and latitude — by chronochrome.";
     root.appendChild(note);
   }
 

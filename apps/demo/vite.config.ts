@@ -1,38 +1,21 @@
-import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 
-// Local: sibling ../chronohue-widget. CI: checked out at ./chronohue-widget.
-function widgetRoot(): string {
-  const candidates = [
-    fileURLToPath(new URL("./chronohue-widget", import.meta.url)),
-    fileURLToPath(new URL("../chronohue-widget", import.meta.url)),
-  ];
-  const found = candidates.find((dir) => existsSync(dir));
-  if (!found) {
-    throw new Error(
-      "chronohue-widget not found. Clone https://github.com/chronohue/widget next to this repo (or into ./chronohue-widget).",
-    );
-  }
-  return found;
-}
+// The demo builds straight from workspace sources, so edits to the core or the
+// widget show up on the next reload without rebuilding their dist/.
+const pkg = (path: string) => fileURLToPath(new URL(`../../packages/${path}`, import.meta.url));
 
-const widget = widgetRoot();
-
-// GITHUB_PAGES=1 npm run build:demo → base /chronohue/ for project Pages
+// GITHUB_PAGES=1 pnpm build:demo → base /chronochrome/ for project Pages
 const pages = process.env.GITHUB_PAGES === "1" || process.env.GITHUB_PAGES === "true";
 
 export default defineConfig({
-  root: "dev",
-  base: pages ? "/chronohue/" : "/",
+  root: "src",
+  base: pages ? "/chronochrome/" : "/",
   resolve: {
     alias: [
-      { find: "@chronohue/widget/sky.css", replacement: `${widget}/src/sky.css` },
-      { find: "@chronohue/widget", replacement: `${widget}/src/index.ts` },
-      {
-        find: "chronohue",
-        replacement: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
-      },
+      { find: /^@chronochrome\/widget\/sky\.css$/, replacement: pkg("widget/src/sky.css") },
+      { find: /^@chronochrome\/widget$/, replacement: pkg("widget/src/index.ts") },
+      { find: /^chronochrome$/, replacement: pkg("core/src/index.ts") },
     ],
   },
   server: {

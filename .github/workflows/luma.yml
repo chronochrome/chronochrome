@@ -4,12 +4,10 @@ on:
   push:
     branches: [main, master]
     paths:
-      - "dev/**"
-      - "src/**"
-      - "deploy/**"
-      - "vite.config.ts"
-      - "package.json"
-      - "package-lock.json"
+      - "apps/demo/**"
+      - "packages/core/src/**"
+      - "packages/widget/src/**"
+      - "pnpm-lock.yaml"
       - ".github/workflows/luma.yml"
   workflow_dispatch:
 
@@ -20,11 +18,6 @@ jobs:
     environment: luma
     steps:
       - uses: actions/checkout@v4
-      - name: Checkout sky widget
-        uses: actions/checkout@v4
-        with:
-          repository: chronohue/widget
-          path: chronohue-widget
       - name: Install deploy key
         env:
           LUMA_SSH_KEY: ${{ secrets.LUMA_SSH_KEY }}
@@ -37,16 +30,17 @@ jobs:
           printf '%s\n' "$LUMA_SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keygen -y -f ~/.ssh/id_ed25519 >/dev/null
-          cp deploy/known_hosts ~/.ssh/known_hosts
+          cp apps/demo/deploy/known_hosts ~/.ssh/known_hosts
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
       - name: Build demo
         run: |
-          npm ci
-          npm run build:demo
+          pnpm install --frozen-lockfile
+          pnpm build:demo
       - name: Rsync to Luma
         env:
           SKIP_BUILD: "1"
-        run: bash deploy/deploy.sh
+        run: bash apps/demo/deploy/deploy.sh

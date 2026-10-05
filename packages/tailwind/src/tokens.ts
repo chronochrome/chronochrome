@@ -1,6 +1,6 @@
 /**
  * Single source for Tailwind v3 plugin theme.extend.
- * Values are CSS vars — ChronoHue start() writes the live colors.
+ * Values are CSS vars — ChronoChrome start() writes the live colors.
  */
 export const tailwindAccentColors = {
   accent: {

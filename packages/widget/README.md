@@ -1,19 +1,19 @@
-# @chronohue/widget
+# @chronochrome/widget
 
 Sun and moon on their day arcs. Same look as the Lumina / isamarin sky: one SVG, `viewBox` 300×150, discs in that space — never stretched with `preserveAspectRatio="none"`.
 
-Math stays in [`chronohue`](https://www.npmjs.com/package/chronohue). This package only draws.
+Math stays in [`chronochrome`](https://www.npmjs.com/package/chronochrome). This package only draws.
 
 ## Install
 
 ```bash
-npm install @chronohue/widget chronohue
+npm install @chronochrome/widget chronochrome
 ```
 
 ```ts
-import { sampleLightHue } from "chronohue";
-import { ARC_HEIGHT, mountSky } from "@chronohue/widget";
-import "@chronohue/widget/sky.css";
+import { sampleLightHue } from "chronochrome";
+import { ARC_HEIGHT, mountSky } from "@chronochrome/widget";
+import "@chronochrome/widget/sky.css";
 
 const snap = sampleLightHue({
   latitude: 57.63,
@@ -34,7 +34,7 @@ const sky = mountSky(document.querySelector("#sky")!, {
 Chart-only (host already has a dial):
 
 ```ts
-import { drawSky } from "@chronohue/widget";
+import { drawSky } from "@chronochrome/widget";
 
 drawSky(document.querySelector("svg")!, snap);
 ```
@@ -45,4 +45,4 @@ The demo painted discs in a 300×286 viewBox, then stretched the SVG to a wide f
 
 ## Repo
 
-https://github.com/chronohue/widget
+https://github.com/chronochrome/chronochrome/tree/main/packages/widget

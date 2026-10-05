@@ -1,8 +1,8 @@
 /**
- * ChronoHue → Tailwind v4 theme tokens.
+ * ChronoChrome → Tailwind v4 theme tokens.
  *
  * @import "tailwindcss";
- * @import "@chronohue/tailwind/theme.css";
+ * @import "@chronochrome/tailwind/theme.css";
  *
  * Then: bg-accent, text-accent, border-accent-hover, shadow-accent, …
  * Runtime values are written by start() onto :root.

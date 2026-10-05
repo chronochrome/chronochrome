@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { tailwindAccentColors, tailwindAccentShadow } from "../src/tokens.js";
 
 describe("tailwindAccentColors", () => {
-  it("points DEFAULT/hover/dim at ChronoHue CSS vars", () => {
+  it("points DEFAULT/hover/dim at ChronoChrome CSS vars", () => {
     expect(tailwindAccentColors.accent.DEFAULT).toBe("var(--accent-primary)");
     expect(tailwindAccentColors.accent.hover).toBe("var(--accent-primary-hover)");
     expect(tailwindAccentColors.accent.dim).toBe("var(--accent-primary-dim)");

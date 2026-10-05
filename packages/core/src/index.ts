@@ -1,5 +1,5 @@
 /**
- * chronohue — circadian accent hues from clock, season, and latitude.
+ * chronochrome — circadian accent hues from clock, season, and latitude.
  * (Internal code name: light-hue. Luminat MainScreens design prototype.)
  *
  * Pure TypeScript: no DOM, no framework, zero runtime dependencies.
