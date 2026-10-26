@@ -206,12 +206,12 @@ export function sampleLightHue(opts: LightHueOptions = {}): LightHueSnapshot {
     });
   }
 
-  if (opts.heading != null) {
+  if (opts.viewerHeading != null) {
     snapshot.device = deviceLight({
       at,
       latitude,
       longitude: opts.longitude ?? 0,
-      heading: opts.heading,
+      viewerHeading: opts.viewerHeading,
     });
   }
 

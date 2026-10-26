@@ -52,12 +52,14 @@ export interface LightHueOptions {
    */
   hourMode?: "clock" | "solar";
   /**
-   * True compass bearing a fixed screen faces, degrees (a TV on a west wall:
-   * 270). When set, the snapshot carries `device`: sun and moon as unit
-   * vectors in the screen's frame, for placing glare and highlights. Needs
-   * `longitude`. Always taken at `at`; `hourOverride` does not move it.
+   * For a fixed screen: the true compass bearing you look along when you stand
+   * in front of it and face it, degrees. The screen faces the opposite way:
+   * looking at 272° means the screen faces 92°. When set, the snapshot carries
+   * `device`: sun and moon as unit vectors in the screen's frame, for placing
+   * glare and highlights. Needs `longitude`. Always taken at `at`;
+   * `hourOverride` does not move it.
    */
-  heading?: number;
+  viewerHeading?: number;
   /** Season shaping of glow intensity / sun disc size. Default `auto`. */
   season?: SeasonMode;
   /**
@@ -169,7 +171,7 @@ export interface LightHueSnapshot {
   cssVars: Record<string, string>;
   /** Present when `includeArcs: true`. */
   arcs?: ArcGeometry;
-  /** Present when `heading` is set. */
+  /** Present when `viewerHeading` is set. */
   device?: DeviceLight;
   /** Short debug/caption string (locale-aware moon age). */
   caption: string;
