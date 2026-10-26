@@ -179,6 +179,36 @@ Two files are built for implementations in other languages:
 The vectors are the contract. A port that drifts fails a test instead of quietly
 running twenty minutes late. Regenerate with `pnpm --filter chronochrome artifacts`.
 
+## Old TV browsers (ES5)
+
+TV engines still in use are old: Samsung Tizen 5 runs Chromium 63, and LG webOS
+3–4 runs Chromium 38–53. For them the package ships `dist/chronochrome.es5.js`,
+a UMD build with the global `chronochrome`. It uses ES5 syntax and needs no API
+newer than Chromium 38.
+
+```html
+<script src="https://unpkg.com/chronochrome@2/dist/chronochrome.es5.js"></script>
+<script>
+  var light = chronochrome.lightAt(18.5);
+  var glare = chronochrome.deviceLight({
+    at: new Date(),
+    latitude: 57.63,
+    longitude: 39.88,
+    viewerHeading: 272,
+  });
+</script>
+```
+
+It holds the parts that don't touch `Intl`: `lightAt`, `DAY_STOPS`,
+`seasonFactor`, `seasonShape`, `solarAnchoredHour` and the `PALETTE_*_HOUR`
+constants, `solarPosition`, `deviceLight`, `toDeviceFrame`, `sunDirection`,
+`moonPosition`, `moonAgeDays` and `moonPhase`. `sampleLightHue` and anything
+that takes a `timeZone` stay out of it: old engines lack the `Intl` time-zone
+names they rely on. Read the wall-clock hour from `Date` and pass it in.
+
+A test runs this bundle against the TypeScript sources in a realm stripped of
+the newer built-ins, and checks that the two agree to 1e-9.
+
 ## Time zones
 
 ```ts
