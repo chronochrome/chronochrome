@@ -25,7 +25,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean && node scripts/export-artifacts.mjs",
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean && tsup src/es5.ts --format iife --global-name chronochrome --target es2020 && node scripts/build-es5.mjs && node scripts/export-artifacts.mjs",
     "artifacts": "node scripts/export-artifacts.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -64,5 +64,8 @@
   "sideEffects": false,
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "acorn": "^8.19.0"
   }
 }

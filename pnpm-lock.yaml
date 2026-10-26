@@ -71,7 +71,11 @@ importers:
         specifier: workspace:^
         version: link:../core
 
-  packages/core: {}
+  packages/core:
+    devDependencies:
+      acorn:
+        specifier: ^8.19.0
+        version: 8.19.0
 
   packages/svelte:
     devDependencies:

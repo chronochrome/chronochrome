@@ -19,7 +19,7 @@ pnpm --filter chronochrome exec vitest run tests/zoned.test.ts   # one file
 pnpm --filter chronochrome exec vitest run -t "sunrise"    # by test name
 ```
 
-Adapter and widget packages import `chronochrome` through its `exports`, which point only at `dist/`. Build core (`pnpm --filter chronochrome build`) before testing or typechecking an adapter, and rebuild it after changing core.
+Adapter and widget packages import `chronochrome` through its `exports`, which point only at `dist/`. Build core (`pnpm --filter chronochrome build`) before testing or typechecking an adapter, and rebuild it after changing core. Core's own `tests/es5.test.ts` also reads the built `dist/chronochrome.es5.js`.
 
 ## Architecture
 
