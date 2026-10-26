@@ -1,3 +1,5 @@
+import type { DeviceLight } from "./device.js";
+
 /** Season intensity mode. `auto` derives from day-of-year. */
 export type SeasonMode = "auto" | "winter" | "mid" | "summer";
 
@@ -49,6 +51,13 @@ export interface LightHueOptions {
    * nearly five hours after the sun came up.
    */
   hourMode?: "clock" | "solar";
+  /**
+   * True compass bearing a fixed screen faces, degrees (a TV on a west wall:
+   * 270). When set, the snapshot carries `device`: sun and moon as unit
+   * vectors in the screen's frame, for placing glare and highlights. Needs
+   * `longitude`. Always taken at `at`; `hourOverride` does not move it.
+   */
+  heading?: number;
   /** Season shaping of glow intensity / sun disc size. Default `auto`. */
   season?: SeasonMode;
   /**
@@ -160,6 +169,8 @@ export interface LightHueSnapshot {
   cssVars: Record<string, string>;
   /** Present when `includeArcs: true`. */
   arcs?: ArcGeometry;
+  /** Present when `heading` is set. */
+  device?: DeviceLight;
   /** Short debug/caption string (locale-aware moon age). */
   caption: string;
   /** Options effectively used (resolved defaults). */

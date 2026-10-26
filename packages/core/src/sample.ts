@@ -1,6 +1,7 @@
 import { solarAnchoredHour } from "./anchor.js";
 import { buildArcs } from "./arcs.js";
 import { buildCssVars } from "./css.js";
+import { deviceLight } from "./device.js";
 import {
   accentDimHex,
   accentHoverHex,
@@ -202,6 +203,15 @@ export function sampleLightHue(opts: LightHueOptions = {}): LightHueSnapshot {
       moonAgeDays: ageDays,
       latitude,
       height: arcHeight,
+    });
+  }
+
+  if (opts.heading != null) {
+    snapshot.device = deviceLight({
+      at,
+      latitude,
+      longitude: opts.longitude ?? 0,
+      heading: opts.heading,
     });
   }
 

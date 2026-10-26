@@ -130,6 +130,32 @@ polar day or polar night there is no sunrise or sunset to pin, so only solar noo
 anchors the axis — the palette is shifted, not stretched, and the night stops still
 come at night by the clock even under the midnight sun.
 
+## Fixed screens: sun and moon in device space
+
+A screen that does not move — a TV on a wall, a kiosk — knows which way it faces.
+Pass that as `heading`, the **true** compass bearing of the screen's face, and the
+snapshot carries `device`: the sun and the moon as unit vectors in the screen's
+frame, for placing glare and highlights where the real light would fall.
+
+```ts
+const snap = sampleLightHue({ ...place, heading: 272 }); // screen faces west
+
+snap.device?.sun; // { azimuthDeg, altitudeDeg, x, y, z }
+snap.device?.moon;
+```
+
+- `x`: to the right, as seen by someone facing the screen
+- `y`: up
+- `z`: out of the screen toward the viewer. `z > 0` means the body is in
+  front of the screen. With `altitudeDeg > 0` it is also above the horizon.
+
+A magnetic compass is off by the local magnetic declination (about +12° in
+Yaroslavl), so add it to the reading. `device` is always taken at `at`, and
+`hourOverride` does not move it. The sun comes from the same NOAA path as
+`solarEvents`. The moon comes from a low-precision lunar series (~0.3°), not
+from the design model behind `snapshot.moon`. The same maths is exported as
+`deviceLight`, `sunDirection`, `moonPosition` and `toDeviceFrame`.
+
 ## Ports
 
 Two files are built for implementations in other languages:

@@ -35,6 +35,7 @@ export {
   KNOWN_NEW_MOON_MS,
   DRACONIC_APPROX,
 } from "./moon.js";
+export { deviceLight, toDeviceFrame, sunDirection, moonPosition } from "./device.js";
 export { dayPhase, phaseLabel } from "./phase.js";
 export { buildArcs } from "./arcs.js";
 export { solarDayEvents, formatHourClock } from "./events.js";
@@ -86,3 +87,10 @@ export type {
   NextGoldenHourOptions,
 } from "./golden.js";
 export type { SolarAnchors } from "./anchor.js";
+export type {
+  SkyDirection,
+  DeviceLightVector,
+  DeviceLight,
+  DeviceLightOptions,
+  MoonPosition,
+} from "./device.js";
