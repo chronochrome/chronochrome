@@ -7,9 +7,13 @@
  *   y — straight up
  *   z — out of the screen, toward the viewer (the screen normal)
  *
- * `heading` is the true compass bearing the screen faces: a TV on a wall that
- * looks west has heading 270. A magnetic compass reads off by the local
- * magnetic declination (about +12° in Yaroslavl); add it before passing.
+ * `viewerHeading` is the true compass bearing you look along when you stand in
+ * front of the screen and face it — the reading a phone compass gives there.
+ * The screen itself faces the opposite way. A magnetic compass reads off by
+ * the local magnetic declination (about +12° in Yaroslavl); add it before
+ * passing.
+ *
+ *   viewer ──── viewerHeading ───▶ ▮ screen
  */
 
 import { solarPosition } from "./ephemeris.js";
@@ -39,8 +43,8 @@ export interface DeviceLightOptions {
   at: Date;
   latitude: number;
   longitude: number;
-  /** True bearing the screen faces, degrees. */
-  heading: number;
+  /** True bearing the viewer looks along to face the screen, degrees. */
+  viewerHeading: number;
 }
 
 function wrap360(deg: number): number {
@@ -121,24 +125,25 @@ export function moonPosition(at: Date, latitudeDeg: number, longitudeDeg: number
   };
 }
 
-/** Rotate a sky direction into the frame of a screen facing `heading`. */
-export function toDeviceFrame(dir: SkyDirection, heading: number): DeviceLightVector {
+/** Rotate a sky direction into the frame of a screen seen along `viewerHeading`. */
+export function toDeviceFrame(dir: SkyDirection, viewerHeading: number): DeviceLightVector {
   const alt = toRad(dir.altitudeDeg);
-  const rel = toRad(dir.azimuthDeg - heading);
+  // Relative to the viewer's line of sight: ahead of the viewer is behind the screen.
+  const rel = toRad(dir.azimuthDeg - viewerHeading);
   return {
     azimuthDeg: dir.azimuthDeg,
     altitudeDeg: dir.altitudeDeg,
-    x: -Math.cos(alt) * Math.sin(rel),
+    x: Math.cos(alt) * Math.sin(rel),
     y: Math.sin(alt),
-    z: Math.cos(alt) * Math.cos(rel),
+    z: -Math.cos(alt) * Math.cos(rel),
   };
 }
 
 /** Sun and moon as unit vectors in the screen's frame. */
 export function deviceLight(opts: DeviceLightOptions): DeviceLight {
-  const { at, latitude, longitude, heading } = opts;
+  const { at, latitude, longitude, viewerHeading } = opts;
   return {
-    sun: toDeviceFrame(sunDirection(at, latitude, longitude), heading),
-    moon: toDeviceFrame(moonPosition(at, latitude, longitude), heading),
+    sun: toDeviceFrame(sunDirection(at, latitude, longitude), viewerHeading),
+    moon: toDeviceFrame(moonPosition(at, latitude, longitude), viewerHeading),
   };
 }
