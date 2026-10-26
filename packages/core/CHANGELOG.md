@@ -1,5 +1,11 @@
 # chronochrome
 
+## 2.1.0
+
+### Minor Changes
+
+- 0167de6: Add `viewerHeading` option for fixed screens: the compass bearing you look along when facing the screen. The snapshot gains `device`, the sun and moon as unit vectors in the screen's frame. Exports `deviceLight`, `sunDirection`, `moonPosition` (real lunar position, ~0.3°) and `toDeviceFrame`.
+
 ## 2.0.1
 
 ### Patch Changes
